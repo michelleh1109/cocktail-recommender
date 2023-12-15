@@ -12,8 +12,22 @@ Benjamin Harris (bsh72), Michelle Hui (msh334), Tina Li (tl676), Vicki Yang (vzy
 This was our final project in CS4300 that recommends cocktail recipes using information retrieval algorithms. Our app fills a market need because it it incorporates flavor profiles and a popularity measure into the drink recommendation system. For other existing cocktail recommendation systems, they either don’t take flavor profile into consideration or only allow for a singular flavor filter. Our app also allows users to choose ingredients they want to exclude from any possible recommendations (in the case of allergies or other dietary restrictions). Since we’ve also implemented Rocchio to allow for users to give feedback on the recommendations and have the app make live adjustments, this is also different from existing websites that may provide cocktail recommendations. 
 
 ## Examples
+#### Example: lemon is a liked ingredient
 
-![cocktail-rec lemon likes](https://drive.google.com/file/d/1PZnJo8Mb2TiXtFjpQn5xhTCw4bsuUKHM/view?usp=sharing)
+![image7](https://github.com/michelleh1109/cocktail-recommender/assets/90575654/e806d849-9b68-4750-bdeb-9e7acfb5cce1)
+
+In this example, our results have changed (improved) due to the use of a popularity measurement when recommending drinks. Drink ranks now include a measurement of how much a drink is liked by other people which factors into how highly it is rated by our system. Gin rickey is a far more popular drink than a lemon drop so it is further up in the recommendations for our final app. We use popularity (from rankings given by people) to recommend drinks since it’s more likely that someone will like a drink that is liked by many other people 
+
+#### Example: lemon as a disliked ingredient
+
+![image2](https://github.com/michelleh1109/cocktail-recommender/assets/90575654/d21d9320-4ff3-40cb-ac71-94b6a4de898c)
+
+This is a clear improvement on our previous system which seemingly didn’t handle dislikes well and just returned the remaining drinks without a disliked ingredient in alphabetical order. Our new system takes into account a cosine ranking of the drinks using the disliked ingredient as a negative weighting when ranking drinks and a popularity measure to recommend drinks that a user might like more due to a generally favorable rating of a drink.
+#### Example: vodka must be included as an ingredient and the flavor should be fruity but must not be citrusy
+
+![image5](https://github.com/michelleh1109/cocktail-recommender/assets/90575654/6f0ba564-5574-4df1-bc99-27a49c28ba7f)
+
+Since our flavor filter now filters for liked flavors, we can’t exclude flavors, but this is still an improvement on our old system since popularity measures are given a higher weighting and more equally applied to drink rankings to give users drinks that they have the highest probability of liking. 
 
 ## Methods
  - Tokenization - We tokenize the inputs from users into token words which are then turned into a query vector.  
